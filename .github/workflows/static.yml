@@ -37,7 +37,9 @@ jobs:
       - name: Install Dependencies
         run: npm install  # Replace with yarn install if you use Yarn
       - name: Run Node.js
-        run: node index.js
+        run: |
+          node index.js &
+          wait $!
       - name: Copy show.ejs to index.ejs
         run: cp views/comments/show.ejs views/comments/index.ejs
       - name: Setup Pages
